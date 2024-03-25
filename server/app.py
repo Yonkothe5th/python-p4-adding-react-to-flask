@@ -13,7 +13,10 @@ CORS(app)
 migrate = Migrate(app, db)
 
 db.init_app(app)
-
+@app.route('/')
+def home():
+    return 'Welcome to Chatterbox back end'
+    
 @app.route('/messages', methods=['GET', 'POST'])
 def messages():
     if request.method == 'GET':
